@@ -17,14 +17,15 @@ namespace SnakeGame
                 int choice;
                 Console.Clear();
                 Console.WriteLine("┌───────────────────────────────┐");
-                Console.WriteLine("│Welcome to the Snake Game menu!│");
-                Console.WriteLine("├───────────────────────────────┤");
-                Console.WriteLine($"│Chosen level: {levelChoice}                │");
-                Console.WriteLine("├───────────────────────────────┤");
-                Console.WriteLine("│0. Quit                        │");
-                Console.WriteLine("│1. Choose level                │");
-                Console.WriteLine("│2. Start                       │");
-                Console.WriteLine("└───────────────────────────────┘");
+                Console.WriteLine("│Welcome to the Snake Game menu!│▒");
+                Console.WriteLine("├───────────────────────────────┤▒");
+                Console.WriteLine($"│Chosen level: {levelChoice}                │▒");
+                Console.WriteLine("├───────────────────────────────┤▒");
+                Console.WriteLine("│0. Quit                        │▒");
+                Console.WriteLine("│1. Choose level                │▒");
+                Console.WriteLine("│2. Start                       │▒");
+                Console.WriteLine("└───────────────────────────────┘▒");
+                Console.WriteLine(" ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
                 bool inputIsCorrect = int.TryParse(Console.ReadLine(), out choice);
                 if (inputIsCorrect)
                 {
