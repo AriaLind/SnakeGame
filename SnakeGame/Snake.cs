@@ -12,7 +12,7 @@ namespace SnakeGame
         int _snakePositionY;
         Queue<int> _snakeTailPosX = new Queue<int>();
         Queue<int> _snakeTailPosY = new Queue<int>();
-        int _snakeLength = 3;
+        public int _snakeLength = 3;
         int leftRight = 1;
         int upDown = 0;
         public Snake(int startX, int startY)

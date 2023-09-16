@@ -17,6 +17,7 @@ namespace SnakeGame
             Levels.RenderLevel(levelChoice);
             while (_gamePlaying)
             {
+                Levels._score = _snake._snakeLength;
                 if (Console.KeyAvailable)
                 {
                     _snake.MovementDirection();
