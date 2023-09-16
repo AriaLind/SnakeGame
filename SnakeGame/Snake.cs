@@ -8,42 +8,38 @@ namespace SnakeGame
 {
     internal class Snake
     {
-        int[] _snakePosition = new int[2]; //[0] = X [1] = Y
-        Queue<int[]> _snakeTail = new Queue<int[]>();
-        int _snakeLength = 5;
+        int _snakePositionX;
+        int _snakePositionY;
+        Queue<int> _snakeTailPosX = new Queue<int>();
+        Queue<int> _snakeTailPosY = new Queue<int>();
+        int _snakeLength = 3;
         int leftRight = 1;
         int upDown = 0;
         public Snake(int startX, int startY)
         {
-            _snakePosition[0] = startX;
-            _snakePosition[1] = startY;         
+            _snakePositionX = startX;
+            _snakePositionY = startY;      
         }
         public void SnakeAutoMovement()
         {
-            Console.SetCursorPosition(0, 22);  //Debug
-            Console.Write("SnakePosBefore" + _snakePosition[0] + " " + _snakePosition[1]);  //Debug
-            _snakeTail.Enqueue(_snakePosition);
-            if (_snakeTail.Count == _snakeLength)
+            if (_snakeTailPosX.Count == _snakeLength)
             {
-                int[] removeTailHere = _snakeTail.Dequeue();
-                Console.SetCursorPosition(0, 20);  //Debug
-                Console.Write("RemoveTail " + removeTailHere[0] + " " + removeTailHere[1]);  //Debug
-                Console.SetCursorPosition(removeTailHere[0], removeTailHere[1]);
-                Console.Write("A");
+                int posX = _snakeTailPosX.Dequeue();
+                int posY = _snakeTailPosY.Dequeue();
+                Console.SetCursorPosition(posX, posY);
+                Console.Write(" ");
             }
-            Console.SetCursorPosition(0, 23);
-            foreach (int[] i in _snakeTail) //Debug
-            {
-                Console.WriteLine(i[0] + " " + i[1]);
-            }
-
-            _snakePosition[0] += leftRight;
-            _snakePosition[1] += upDown;
-            Console.SetCursorPosition(0, 21);  //Debug
-            Console.Write("SnakePosAfter " + _snakePosition[0] + " " + _snakePosition[1]);  //Debug
-            Console.SetCursorPosition(_snakePosition[0], _snakePosition[1]);
+            _snakePositionX += leftRight;
+            _snakePositionY += upDown;
+            _snakeTailPosX.Enqueue(_snakePositionX);
+            _snakeTailPosY.Enqueue(_snakePositionY);
+            Console.SetCursorPosition(_snakePositionX, _snakePositionY);
             Console.Write("O");
-            Console.SetCursorPosition(_snakePosition[0], _snakePosition[1]);
+            Console.SetCursorPosition(_snakePositionX, _snakePositionY);
+        }
+        public void Eat()
+        {
+
         }
         public void MovementDirection()
         {
