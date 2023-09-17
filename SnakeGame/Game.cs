@@ -23,7 +23,7 @@ namespace SnakeGame
                 {
                     _snake.MovementDirection();
                 }
-                Levels.RenderScore(levelChoice);
+                Levels.RenderScore();
                 _snake.SnakeAutoMovement();
                 if (Levels._food == false)
                 {

@@ -10,9 +10,9 @@ namespace SnakeGame
     {
         int _snakePositionX;
         int _snakePositionY;
-        Queue<int> _snakeTailPosX = new Queue<int>();
-        Queue<int> _snakeTailPosY = new Queue<int>();
-        public int _snakeLength = 3;
+        List<int> _snakeTailPosX = new List<int>();
+        List<int> _snakeTailPosY = new List<int>();
+        public int _snakeLength = 10;
         int leftRight = 1;
         int upDown = 0;
         public Snake(int startX, int startY)
@@ -24,15 +24,17 @@ namespace SnakeGame
         {
             if (_snakeTailPosX.Count == _snakeLength)
             {
-                int posX = _snakeTailPosX.Dequeue();
-                int posY = _snakeTailPosY.Dequeue();
+                int posX = _snakeTailPosX[0];
+                int posY = _snakeTailPosY[0];
+                _snakeTailPosX.RemoveAt(0);
+                _snakeTailPosY.RemoveAt(0);
                 Console.SetCursorPosition(posX, posY);
                 Console.Write(" ");
             }
             _snakePositionX += leftRight;
             _snakePositionY += upDown;
-            _snakeTailPosX.Enqueue(_snakePositionX);
-            _snakeTailPosY.Enqueue(_snakePositionY);
+            _snakeTailPosX.Add(_snakePositionX);
+            _snakeTailPosY.Add(_snakePositionY);
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
             Console.Write("O");
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);

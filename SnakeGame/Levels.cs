@@ -50,9 +50,9 @@ namespace SnakeGame
             Console.Write($"Level: {_levelChoice + 1}");
 
         }
-        public static void RenderScore(int levelChoice)
+        public static void RenderScore()
         {
-            int writeAtEdge = _allLevels[levelChoice].GetLength(1);
+            int writeAtEdge = _allLevels[_levelChoice].GetLength(1);
             Console.SetCursorPosition(writeAtEdge + 1, 2);
             Console.Write($"Score: {_score}");
 
