@@ -8,30 +8,35 @@ namespace SnakeGame
 {
     static public class Levels
     {
-        static Random rnd = new Random();
+        
         static public int _score = 0;
         static List<string[,]> _allLevels = new List<string[,]>();
         static string[] _colliders = { "╔", "╗", "╚", "╝", "═" };
-        static public bool food = false;
-        static public int[] foodplace;
+        static public bool _food = false;
+        static public int[] _foodPosition = new int[2];
+        static public int _levelChoice;
         static Levels()
         {
             _allLevels.Add(_levelOne);
             _allLevels.Add(_levelTwo);
         }
-        public static void RenderLevel(int levelChoice)
+        public static void ChooseLevel(int levelChoice)
+        {
+            _levelChoice = levelChoice;
+        }
+        public static void RenderLevel()
         {
             _score = 0;
-            string[,] chosenLevel = _allLevels[levelChoice];
-            for (int i = 0; i < _allLevels[levelChoice].GetLength(0); i++)
+            string[,] chosenLevel = _allLevels[_levelChoice];
+            for (int i = 0; i < _allLevels[_levelChoice].GetLength(0); i++)
             {
-                for (int j = 0; j < _allLevels[levelChoice].GetLength(1); j++)
+                for (int j = 0; j < _allLevels[_levelChoice].GetLength(1); j++)
                 {
                     Console.Write(chosenLevel[i, j]);
                 }
                 Console.WriteLine();
             }
-            int writeAtEdge = _allLevels[levelChoice].GetLength(1);
+            int writeAtEdge = _allLevels[_levelChoice].GetLength(1);
             Console.SetCursorPosition(writeAtEdge, 0);
             Console.Write("┌──────────────┐");
             Console.SetCursorPosition(writeAtEdge, 1);
@@ -41,7 +46,7 @@ namespace SnakeGame
             Console.SetCursorPosition(writeAtEdge, 3);
             Console.Write($"└──────────────┘");
             Console.SetCursorPosition(writeAtEdge + 1, 1);
-            Console.Write($"Level: {levelChoice + 1}");
+            Console.Write($"Level: {_levelChoice + 1}");
 
         }
         public static void RenderScore(int levelChoice)
@@ -50,6 +55,12 @@ namespace SnakeGame
             Console.SetCursorPosition(writeAtEdge + 1, 2);
             Console.Write($"Score: {_score}");
 
+        }
+        public static void SnakeFood()
+        {
+            Random _rnd = new Random();
+            _foodPosition[0] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(1) - 2);
+            _foodPosition[1] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(0) - 2);
         }
         static string[,] _levelOne = new string[,]
         {
@@ -74,9 +85,9 @@ namespace SnakeGame
             {"╔", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═","═", "═", "═", "═", "═", "╗",},
             {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
             {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
-            {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
-            {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
-            {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
+            {"║", " ", " ", " ", "╔", "═", "╗", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
+            {"║", " ", " ", " ", "║", " ", "║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
+            {"║", " ", " ", " ", "╚", "═", "╝", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
             {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
             {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},
             {"║", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ","║",},

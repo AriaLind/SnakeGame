@@ -36,10 +36,15 @@ namespace SnakeGame
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
             Console.Write("O");
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
+            Eat();
         }
         public void Eat()
         {
-
+            if (_snakePositionX == Levels._foodPosition[0] && _snakePositionY == Levels._foodPosition[1])
+            {
+                _snakeLength++;
+                Levels._food = false;
+            }
         }
         public void MovementDirection()
         {
