@@ -32,7 +32,7 @@ namespace SnakeGame
                 }
                 Console.SetCursorPosition(Levels._foodPosition[0], Levels._foodPosition[1]);
                 Console.Write("¤");
-                Thread.Sleep(200);
+                Thread.Sleep(Levels._difficulty);
             }
         }
     }

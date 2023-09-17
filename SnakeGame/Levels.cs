@@ -15,6 +15,7 @@ namespace SnakeGame
         static public bool _food = false;
         static public int[] _foodPosition = new int[2];
         static public int _levelChoice;
+        static public int _difficulty;
         static Levels()
         {
             _allLevels.Add(_levelOne);
