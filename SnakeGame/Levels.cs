@@ -63,6 +63,9 @@ namespace SnakeGame
             _foodPosition[0] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(1) - 2);
             _foodPosition[1] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(0) - 2);
         }
+        public static void CheckWalls(int positionX, int positionY)
+        {
+        }
         static string[,] _levelOne = new string[,]
         {
             {"╔", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═", "═","═", "═", "═", "═", "═", "╗",},
