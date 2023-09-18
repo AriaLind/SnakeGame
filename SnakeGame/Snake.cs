@@ -13,7 +13,7 @@ namespace SnakeGame
         public bool _collided = false;
         List<int> _snakeTailPosX = new List<int>();
         List<int> _snakeTailPosY = new List<int>();
-        public int _snakeLength = 15;
+        public int _snakeLength = 1;
         int leftRight = 1;
         int upDown = 0;
         public Snake(int startX, int startY)
@@ -37,7 +37,12 @@ namespace SnakeGame
             _snakeTailPosX.Add(_snakePositionX);
             _snakeTailPosY.Add(_snakePositionY);
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
-            TailCollision();
+            _collided = Levels.ObjectCollision(_snakePositionX, _snakePositionY);
+            if (_collided == false)
+            {
+                TailCollision();
+
+            }
             if (_collided == true)
             {
                 Console.Write("X");
@@ -71,6 +76,7 @@ namespace SnakeGame
                 }
             }  
         }
+        
         public void MovementDirection()
         {
             var controlInput = Console.ReadKey(true);

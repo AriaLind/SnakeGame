@@ -63,8 +63,21 @@ namespace SnakeGame
             _foodPosition[0] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(1) - 2);
             _foodPosition[1] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(0) - 2);
         }
-        public static void CheckWalls(int positionX, int positionY)
+        public static bool ObjectCollision (int positionX, int positionY)
         {
+            string[,] thisLevel = _allLevels[_levelChoice];
+            try
+            {
+                if (_colliders.Contains(thisLevel[positionY, positionX]))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+
+            }
+            return false;
         }
         static string[,] _levelOne = new string[,]
         {
