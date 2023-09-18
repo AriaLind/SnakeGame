@@ -18,7 +18,6 @@ namespace SnakeGame
             Levels.RenderLevel();
             while (_gamePlaying)
             {
-                
                 Levels._score = _snake._snakeLength;
                 if (Console.KeyAvailable)
                 {
@@ -39,6 +38,8 @@ namespace SnakeGame
                     _gamePlaying = false;
                 }
             }
+            Console.SetCursorPosition(Levels._allLevels[levelChoice].GetLength(1) / 2, Levels._allLevels[levelChoice].GetLength(0) / 2);
+            Console.Write("GAME OVER.");
         }
     }
 }

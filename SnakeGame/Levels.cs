@@ -10,7 +10,7 @@ namespace SnakeGame
     {
         
         static public int _score = 0;
-        static List<string[,]> _allLevels = new List<string[,]>();
+        static public List<string[,]> _allLevels = new List<string[,]>();
         static string[] _colliders = { "╔", "╗", "╚", "╝", "═" };
         static public bool _food = false;
         static public int[] _foodPosition = new int[2];
