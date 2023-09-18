@@ -66,7 +66,7 @@ namespace SnakeGame
                             Console.WriteLine("│1. Slow                         │");
                             Console.WriteLine("│2. Medium                       │");
                             Console.WriteLine("│3. Fast                         │");
-                            Console.WriteLine("│4. Custom                       │");
+                            Console.WriteLine("│                                │");
                             Console.WriteLine("│                                │");
                             Console.WriteLine("└────────────────────────────────┘");
                             var speedInput = Console.ReadKey(true);
