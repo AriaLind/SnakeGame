@@ -17,16 +17,17 @@ namespace SnakeGame
             {
                 int choice;
                 Console.Clear();
-                Console.WriteLine("┌───────────────────────────────┐");
-                Console.WriteLine("│Welcome to the Snake Game menu!│");
-                Console.WriteLine("├───────────────────────────────┤");
-                Console.WriteLine($"│Level: {levelChoice} Difficulty: {speed}         │");
-                Console.WriteLine("├───────────────────────────────┤");
-                Console.WriteLine("│0. Quit                        │");
-                Console.WriteLine("│1. Choose level                │");
-                Console.WriteLine("│2. Choose speed                │");
-                Console.WriteLine("│3. Start                       │");
-                Console.WriteLine("└───────────────────────────────┘");
+                Console.WriteLine("┌────────────────────────────────┐");
+                Console.WriteLine("│           SNAKE MENU           │");
+                Console.WriteLine("├────────────────────────────────┤");
+                Console.WriteLine($"│Level: {levelChoice} Difficulty: {speed}          │");
+                Console.WriteLine("├────────────────────────────────┤");
+                Console.WriteLine("│0. Quit                         │");
+                Console.WriteLine("│1. Choose level                 │");
+                Console.WriteLine("│2. Choose speed                 │");
+                Console.WriteLine("│3. Start                        │");
+                Console.WriteLine("│4. Leaderboards                 │");
+                Console.WriteLine("└────────────────────────────────┘");
                 bool inputIsCorrect = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out choice);
                 if (inputIsCorrect)
                 {
@@ -38,16 +39,17 @@ namespace SnakeGame
                             break;
                         case 1:
                             Console.Clear();
-                            Console.WriteLine("┌───────────────────────────────┐");
-                            Console.WriteLine("│Choose a level:                │");
-                            Console.WriteLine("├───────────────────────────────┤");
-                            Console.WriteLine($"│Current level: {levelChoice}               │");
-                            Console.WriteLine("├───────────────────────────────┤");
-                            Console.WriteLine("│1. Level one                   │");
-                            Console.WriteLine("│2. Level two                   │");
-                            Console.WriteLine("│                               │");
-                            Console.WriteLine("│                               │");
-                            Console.WriteLine("└───────────────────────────────┘");
+                            Console.WriteLine("┌────────────────────────────────┐");
+                            Console.WriteLine("│          CHOOSE LEVEL          │");
+                            Console.WriteLine("├────────────────────────────────┤");
+                            Console.WriteLine($"│Current level: {levelChoice}                │");
+                            Console.WriteLine("├────────────────────────────────┤");
+                            Console.WriteLine("│1. Level one                    │");
+                            Console.WriteLine("│2. Level two                    │");
+                            Console.WriteLine("│                                │");
+                            Console.WriteLine("│                                │");
+                            Console.WriteLine("│                                │");
+                            Console.WriteLine("└────────────────────────────────┘");
                             bool checkLevelInput = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out levelChoice);
                             if (levelChoice > 2 || levelChoice < 1)
                             {
@@ -56,16 +58,17 @@ namespace SnakeGame
                             break;
                         case 2:
                             Console.Clear();
-                            Console.WriteLine("┌───────────────────────────────┐");
-                            Console.WriteLine("│Choose speed:                  │");
-                            Console.WriteLine("├───────────────────────────────┤");
-                            Console.WriteLine($"│Current speed:      {speed}          │");
-                            Console.WriteLine("├───────────────────────────────┤");
-                            Console.WriteLine("│1. Slow                        │");
-                            Console.WriteLine("│2. Medium                      │");
-                            Console.WriteLine("│3. Fast                        │");
-                            Console.WriteLine("│4. Custom                      │");
-                            Console.WriteLine("└───────────────────────────────┘");
+                            Console.WriteLine("┌────────────────────────────────┐");
+                            Console.WriteLine("│           GAME SPEED           │");
+                            Console.WriteLine("├────────────────────────────────┤");
+                            Console.WriteLine($"│Current speed:      {speed}           │");
+                            Console.WriteLine("├────────────────────────────────┤");
+                            Console.WriteLine("│1. Slow                         │");
+                            Console.WriteLine("│2. Medium                       │");
+                            Console.WriteLine("│3. Fast                         │");
+                            Console.WriteLine("│4. Custom                       │");
+                            Console.WriteLine("│                                │");
+                            Console.WriteLine("└────────────────────────────────┘");
                             var speedInput = Console.ReadKey(true);
                             bool checkSpeedInput = int.TryParse(speedInput.KeyChar.ToString(), out speed);
                             if (speed > 3 || speed < 1)
