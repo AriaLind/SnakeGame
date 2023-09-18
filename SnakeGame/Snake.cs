@@ -19,7 +19,7 @@ namespace SnakeGame
         public Snake(int startX, int startY)
         {
             _snakePositionX = startX;
-            _snakePositionY = startY;      
+            _snakePositionY = startY;
         }
         public void SnakeAutoMovement()
         {
@@ -38,11 +38,7 @@ namespace SnakeGame
             _snakeTailPosY.Add(_snakePositionY);
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
             _collided = Levels.ObjectCollision(_snakePositionX, _snakePositionY);
-            if (_collided == false)
-            {
-                TailCollision();
-
-            }
+            TailCollision();
             if (_collided == true)
             {
                 Console.Write("X");
@@ -74,9 +70,9 @@ namespace SnakeGame
                         break;
                     }
                 }
-            }  
+            }
         }
-        
+
         public void MovementDirection()
         {
             var controlInput = Console.ReadKey(true);

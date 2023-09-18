@@ -8,10 +8,10 @@ namespace SnakeGame
 {
     static public class Levels
     {
-        
+
         static public int _score = 0;
         static public List<string[,]> _allLevels = new List<string[,]>();
-        static string[] _colliders = { "╔", "╗", "╚", "╝", "═" };
+        static string[] _colliders = { "╔", "╗", "╚", "╝", "═", "║" };
         static public bool _food = false;
         static public int[] _foodPosition = new int[2];
         static public int _levelChoice;
@@ -63,21 +63,14 @@ namespace SnakeGame
             _foodPosition[0] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(1) - 2);
             _foodPosition[1] = _rnd.Next(1, _allLevels[_levelChoice].GetLength(0) - 2);
         }
-        public static bool ObjectCollision (int positionX, int positionY)
+        public static bool ObjectCollision(int positionX, int positionY)
         {
             string[,] thisLevel = _allLevels[_levelChoice];
-            try
+            if (_colliders.Contains(thisLevel[positionY, positionX]))
             {
-                if (_colliders.Contains(thisLevel[positionY, positionX]))
-                {
-                    return true;
-                }
+                return true;
             }
-            catch
-            {
-
-            }
-            return false;
+                return false;
         }
         static string[,] _levelOne = new string[,]
         {
