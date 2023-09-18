@@ -31,7 +31,7 @@ namespace SnakeGame
                 bool inputIsCorrect = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out choice);
                 if (inputIsCorrect)
                 {
-                    switch(choice)
+                    switch (choice)
                     {
                         case 0:
                             menuIsOn = false;
