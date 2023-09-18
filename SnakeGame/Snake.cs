@@ -41,11 +41,15 @@ namespace SnakeGame
             TailCollision();
             if (_collided == true)
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.Write("X");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write("O");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
             Eat();

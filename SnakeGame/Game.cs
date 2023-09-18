@@ -30,7 +30,9 @@ namespace SnakeGame
                     Levels._food = true;
                 }
                 Console.SetCursorPosition(Levels._foodPosition[0], Levels._foodPosition[1]);
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.Write("¤");
+                Console.ForegroundColor = ConsoleColor.White;
                 _snake.SnakeAutoMovement();
                 Thread.Sleep(Levels._difficulty);
                 if (_snake._collided == true)
@@ -39,7 +41,10 @@ namespace SnakeGame
                 }
             }
             Console.SetCursorPosition(Levels._allLevels[levelChoice].GetLength(1) / 2, Levels._allLevels[levelChoice].GetLength(0) / 2);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Write("GAME OVER.");
+            Console.ForegroundColor = ConsoleColor.White;
+            Thread.Sleep(1000);
         }
     }
 }

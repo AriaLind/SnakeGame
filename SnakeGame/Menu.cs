@@ -89,20 +89,21 @@ namespace SnakeGame
                             }
                             break;
                         case 3:
-                            Game startGame = new Game(levelChoice - 1);
-                            Console.ReadKey(true);
-                            //try
-                            //{
-                                
-                            //}
-                            //catch
-                            //{
-                            //    Console.Clear();
-                            //    Console.WriteLine("Error 1. Could not start game.");
-                            //    Console.WriteLine("Try choosing a different level.");
-                            //    Console.ReadKey(true);
-                            //    Console.Clear();
-                            //}
+                            try
+                            {
+                                Game startGame = new Game(levelChoice - 1);
+                                Console.ReadKey(true);
+                            }
+                            catch
+                            {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("Error 1. Could not start game.");
+                                Console.WriteLine("Try choosing a different level.");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.ReadKey(true);
+                                Console.Clear();
+                            }
                             break;
                     }
                 }
