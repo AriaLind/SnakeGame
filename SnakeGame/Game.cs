@@ -44,7 +44,7 @@ namespace SnakeGame
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Write("GAME OVER.");
             Console.ForegroundColor = ConsoleColor.White;
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
         }
     }
 }
