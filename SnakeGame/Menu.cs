@@ -108,6 +108,11 @@ namespace SnakeGame
                                 Console.Clear();
                             }
                             break;
+                        case 4:
+                            Console.Clear();
+                            Console.WriteLine("Under construction.");
+                            Console.ReadKey(true);
+                            break;
                     }
                 }
             }

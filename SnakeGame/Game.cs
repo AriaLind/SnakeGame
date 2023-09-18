@@ -41,6 +41,7 @@ namespace SnakeGame
                 }
             }
             Console.SetCursorPosition(Levels._allLevels[levelChoice].GetLength(1) / 2, Levels._allLevels[levelChoice].GetLength(0) / 2);
+            //Leaderboard.AddToLeaderboard(levelChoice, Levels._score);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Write("GAME OVER.");
             Thread.Sleep(3000);

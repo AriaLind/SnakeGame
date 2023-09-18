@@ -8,7 +8,6 @@ namespace SnakeGame
 {
     static public class Levels
     {
-
         static public int _score = 0;
         static public List<string[,]> _allLevels = new List<string[,]>();
         static string[] _colliders = { "╔", "╗", "╚", "╝", "═", "║", "╬", "╠", "╣", "╦", "╩" };
