@@ -44,8 +44,8 @@ namespace SnakeGame
                             Console.WriteLine("├────────────────────────────────┤");
                             Console.WriteLine($"│Current level: {levelChoice}                │");
                             Console.WriteLine("├────────────────────────────────┤");
-                            Console.WriteLine("│1. Level one                    │");
-                            Console.WriteLine("│2. Level two                    │");
+                            Console.WriteLine("│1. Small level                  │");
+                            Console.WriteLine("│2. Large level                  │");
                             Console.WriteLine("│                                │");
                             Console.WriteLine("│                                │");
                             Console.WriteLine("│                                │");
