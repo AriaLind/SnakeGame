@@ -11,8 +11,8 @@ namespace SnakeGame
         public void StartMenu()
         {
             bool menuIsOn = true;
-            int levelChoice = 1;
-            int difficulty = 1;
+            int levelChoice = 0;
+            int difficulty = 0;
             while (menuIsOn)
             {
                 int choice;
@@ -76,15 +76,15 @@ namespace SnakeGame
                             {
                                 if (difficulty == 1)
                                 {
-                                    Levels._difficulty = 800;
+                                    Levels._difficulty = 400;
                                 }
                                 if (difficulty == 2)
                                 {
-                                    Levels._difficulty = 500;
+                                    Levels._difficulty = 200;
                                 }
                                 if (difficulty == 3)
                                 {
-                                    Levels._difficulty = 200;
+                                    Levels._difficulty = 100;
                                 }
                             }
                             break;
@@ -96,6 +96,7 @@ namespace SnakeGame
                             }
                             catch
                             {
+                                Console.Clear();
                                 Console.WriteLine("Error 1. Could not start game.");
                                 Console.WriteLine("Try choosing a different level.");
                                 Console.ReadKey(true);
