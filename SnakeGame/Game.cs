@@ -34,7 +34,7 @@ namespace SnakeGame
                 Console.Write("¤");
                 Console.ForegroundColor = ConsoleColor.White;
                 _snake.SnakeAutoMovement();
-                Thread.Sleep(Levels._difficulty);
+                Thread.Sleep(Levels._speed);
                 if (_snake._collided == true)
                 {
                     _gamePlaying = false;

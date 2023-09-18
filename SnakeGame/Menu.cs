@@ -66,28 +66,34 @@ namespace SnakeGame
                             Console.WriteLine("│1. Slow                         │");
                             Console.WriteLine("│2. Medium                       │");
                             Console.WriteLine("│3. Fast                         │");
-                            Console.WriteLine("│                                │");
-                            Console.WriteLine("│                                │");
+                            Console.WriteLine("│4. Even faster                  │");
+                            Console.WriteLine("│5. Way too fast                 │");
                             Console.WriteLine("└────────────────────────────────┘");
                             var speedInput = Console.ReadKey(true);
                             bool checkSpeedInput = int.TryParse(speedInput.KeyChar.ToString(), out speed);
-                            if (speed > 3 || speed < 1)
+                            if (speed > 5 || speed < 1)
                             {
                                 speed = 1;
                             }
                             if (checkSpeedInput == true)
                             {
-                                if (speed == 1)
+                                switch (speed)
                                 {
-                                    Levels._difficulty = 400;
-                                }
-                                if (speed == 2)
-                                {
-                                    Levels._difficulty = 200;
-                                }
-                                if (speed == 3)
-                                {
-                                    Levels._difficulty = 100;
+                                    case 1:
+                                        Levels._speed = 400;
+                                        break;
+                                    case 2:
+                                        Levels._speed = 200;
+                                        break;
+                                    case 3:
+                                        Levels._speed = 100;
+                                        break;
+                                    case 4:
+                                        Levels._speed = 50;
+                                        break;
+                                    case 5:
+                                        Levels._speed = 25;
+                                        break;
                                 }
                             }
                             break;
