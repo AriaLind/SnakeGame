@@ -12,7 +12,7 @@ namespace SnakeGame
         {
             bool menuIsOn = true;
             int levelChoice = 0;
-            int difficulty = 0;
+            int speed = 0;
             while (menuIsOn)
             {
                 int choice;
@@ -20,11 +20,11 @@ namespace SnakeGame
                 Console.WriteLine("┌───────────────────────────────┐");
                 Console.WriteLine("│Welcome to the Snake Game menu!│");
                 Console.WriteLine("├───────────────────────────────┤");
-                Console.WriteLine($"│Level: {levelChoice} Difficulty: {difficulty}         │");
+                Console.WriteLine($"│Level: {levelChoice} Difficulty: {speed}         │");
                 Console.WriteLine("├───────────────────────────────┤");
                 Console.WriteLine("│0. Quit                        │");
                 Console.WriteLine("│1. Choose level                │");
-                Console.WriteLine("│2. Choose difficulty           │");
+                Console.WriteLine("│2. Choose speed                │");
                 Console.WriteLine("│3. Start                       │");
                 Console.WriteLine("└───────────────────────────────┘");
                 bool inputIsCorrect = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out choice);
@@ -57,51 +57,52 @@ namespace SnakeGame
                         case 2:
                             Console.Clear();
                             Console.WriteLine("┌───────────────────────────────┐");
-                            Console.WriteLine("│Choose a difficulty:           │");
+                            Console.WriteLine("│Choose speed:                  │");
                             Console.WriteLine("├───────────────────────────────┤");
-                            Console.WriteLine($"│Current difficulty: {difficulty}          │");
+                            Console.WriteLine($"│Current speed:      {speed}          │");
                             Console.WriteLine("├───────────────────────────────┤");
-                            Console.WriteLine("│1. Easy                        │");
+                            Console.WriteLine("│1. Slow                        │");
                             Console.WriteLine("│2. Medium                      │");
-                            Console.WriteLine("│3. Hard                        │");
-                            Console.WriteLine("│                               │");
+                            Console.WriteLine("│3. Fast                        │");
+                            Console.WriteLine("│4. Custom                      │");
                             Console.WriteLine("└───────────────────────────────┘");
-                            var difficultyInput = Console.ReadKey(true);
-                            bool checkDifficultyInput = int.TryParse(difficultyInput.KeyChar.ToString(), out difficulty);
-                            if (difficulty > 3 || difficulty < 1)
+                            var speedInput = Console.ReadKey(true);
+                            bool checkSpeedInput = int.TryParse(speedInput.KeyChar.ToString(), out speed);
+                            if (speed > 3 || speed < 1)
                             {
-                                difficulty = 1;
+                                speed = 1;
                             }
-                            if (checkDifficultyInput == true)
+                            if (checkSpeedInput == true)
                             {
-                                if (difficulty == 1)
+                                if (speed == 1)
                                 {
                                     Levels._difficulty = 400;
                                 }
-                                if (difficulty == 2)
+                                if (speed == 2)
                                 {
                                     Levels._difficulty = 200;
                                 }
-                                if (difficulty == 3)
+                                if (speed == 3)
                                 {
                                     Levels._difficulty = 100;
                                 }
                             }
                             break;
                         case 3:
-                            try
-                            {
-                                Game startGame = new Game(levelChoice - 1);
-                                Console.ReadKey(true);
-                            }
-                            catch
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Error 1. Could not start game.");
-                                Console.WriteLine("Try choosing a different level.");
-                                Console.ReadKey(true);
-                                Console.Clear();
-                            }
+                            Game startGame = new Game(levelChoice - 1);
+                            Console.ReadKey(true);
+                            //try
+                            //{
+                                
+                            //}
+                            //catch
+                            //{
+                            //    Console.Clear();
+                            //    Console.WriteLine("Error 1. Could not start game.");
+                            //    Console.WriteLine("Try choosing a different level.");
+                            //    Console.ReadKey(true);
+                            //    Console.Clear();
+                            //}
                             break;
                     }
                 }

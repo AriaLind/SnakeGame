@@ -8,11 +8,12 @@ namespace SnakeGame
 {
     internal class Snake
     {
-        int _snakePositionX;
-        int _snakePositionY;
+        public int _snakePositionX;
+        public int _snakePositionY;
+        public bool _collided = false;
         List<int> _snakeTailPosX = new List<int>();
         List<int> _snakeTailPosY = new List<int>();
-        public int _snakeLength = 1;
+        public int _snakeLength = 15;
         int leftRight = 1;
         int upDown = 0;
         public Snake(int startX, int startY)
@@ -36,7 +37,15 @@ namespace SnakeGame
             _snakeTailPosX.Add(_snakePositionX);
             _snakeTailPosY.Add(_snakePositionY);
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
-            Console.Write("O");
+            TailCollision();
+            if (_collided == true)
+            {
+                Console.Write("X");
+            }
+            else
+            {
+                Console.Write("O");
+            }
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
             Eat();
         }
@@ -47,6 +56,20 @@ namespace SnakeGame
                 _snakeLength++;
                 Levels._food = false;
             }
+        }
+        public void TailCollision()
+        {
+            if (_snakeTailPosX.Count == _snakeLength)
+            {
+                for (int i = 0; i < _snakeLength - 1; i++)
+                {
+                    if (_snakePositionX == _snakeTailPosX[i] && _snakePositionY == _snakeTailPosY[i])
+                    {
+                        _collided = true;
+                        break;
+                    }
+                }
+            }  
         }
         public void MovementDirection()
         {

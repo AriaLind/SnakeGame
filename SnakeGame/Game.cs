@@ -18,13 +18,13 @@ namespace SnakeGame
             Levels.RenderLevel();
             while (_gamePlaying)
             {
+                
                 Levels._score = _snake._snakeLength;
                 if (Console.KeyAvailable)
                 {
                     _snake.MovementDirection();
                 }
                 Levels.RenderScore();
-                _snake.SnakeAutoMovement();
                 if (Levels._food == false)
                 {
                     Levels.SnakeFood();
@@ -32,7 +32,12 @@ namespace SnakeGame
                 }
                 Console.SetCursorPosition(Levels._foodPosition[0], Levels._foodPosition[1]);
                 Console.Write("¤");
+                _snake.SnakeAutoMovement();
                 Thread.Sleep(Levels._difficulty);
+                if (_snake._collided == true)
+                {
+                    _gamePlaying = false;
+                }
             }
         }
     }
