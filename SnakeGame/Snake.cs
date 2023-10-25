@@ -10,12 +10,12 @@ namespace SnakeGame
     {
         public int _snakePositionX;
         public int _snakePositionY;
-        public bool _collided = false;
-        List<int> _snakeTailPosX = new List<int>();
-        List<int> _snakeTailPosY = new List<int>();
+        public bool _collided;
+        List<int> _snakeTailPosX = new();
+        List<int> _snakeTailPosY = new();
         public int _snakeLength = 1;
         int leftRight = 1;
-        int upDown = 0;
+        int upDown;
         public Snake(int startX, int startY)
         {
             _snakePositionX = startX;
@@ -39,7 +39,7 @@ namespace SnakeGame
             Console.SetCursorPosition(_snakePositionX, _snakePositionY);
             _collided = Levels.ObjectCollision(_snakePositionX, _snakePositionY);
             TailCollision();
-            if (_collided == true)
+            if (_collided)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.Write("X");

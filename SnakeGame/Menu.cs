@@ -75,7 +75,7 @@ namespace SnakeGame
                             {
                                 speed = 1;
                             }
-                            if (checkSpeedInput == true)
+                            if (checkSpeedInput)
                             {
                                 switch (speed)
                                 {

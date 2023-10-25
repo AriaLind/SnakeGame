@@ -31,11 +31,11 @@ namespace SnakeGame
                 }
                 Console.SetCursorPosition(Levels._foodPosition[0], Levels._foodPosition[1]);
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.Write("¤");
+                Console.Write("+");
                 Console.ForegroundColor = ConsoleColor.White;
                 _snake.SnakeAutoMovement();
                 Thread.Sleep(Levels._speed);
-                if (_snake._collided == true)
+                if (_snake._collided)
                 {
                     _gamePlaying = false;
                 }

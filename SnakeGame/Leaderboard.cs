@@ -8,7 +8,7 @@ namespace SnakeGame
 {
     internal class Leaderboard
     {
-        public static List<int> _levelOneLeaderboard = new List<int>();
+        public static List<int> _levelOneLeaderboard = new();
         public static void AddToLeaderboard(int level, int score)
         {
         }

@@ -8,13 +8,13 @@ namespace SnakeGame
 {
     static public class Levels
     {
-        static public int _score = 0;
-        static public List<string[,]> _allLevels = new List<string[,]>();
+        static public int _score;
+        static public List<string[,]> _allLevels = new();
         static string[] _colliders = { "╔", "╗", "╚", "╝", "═", "║", "╬", "╠", "╣", "╦", "╩" };
         static public bool _food = false;
         static public int[] _foodPosition = new int[2];
         static public int _levelChoice;
-        static public int _speed;
+        static public int _speed = 500;
         static Levels()
         {
             _allLevels.Add(_levelOne);
